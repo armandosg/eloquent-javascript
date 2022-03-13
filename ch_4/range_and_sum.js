@@ -1,12 +1,14 @@
 function range(start, end, step = 1) {
-  let compare = (i, end) => i <= end;
   if (step == 0) return undefined;
-  else if (step < 0) {
+
+  let compare = (i, end) => i <= end;
+  if (step < 0) {
+    compare = (i, end) => i >= end;
     let temp = start;
     start = end;
     end = temp;
-    compare = (i, end) => i >= end;
   }
+
   let array = [];
   for (let i = start; compare(i, end); i += step) {
     array.push(i);
